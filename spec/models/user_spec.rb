@@ -1,5 +1,14 @@
 require 'rails_helper'
+require 'faker'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it {is_expected.to have_secure_password}
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:email) }
+  it { should validate_uniqueness_of(:email)}
+  it do
+    should validate_length_of(:password).
+    is_at_least(3)
+  end
+  
 end
