@@ -1,21 +1,10 @@
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-
-
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://www.microverse.org/">
@@ -23,26 +12,27 @@
   </a>
 
   <h3 align="center">
-	Your Title Here
+	 Private Events
   </h3>
 
   <p align="center">
-    Describe project
+    Allows users to create events and then manage user signups. Users can create events and send invitations and parties. Events take place at a specific date and at a location.
     <br />
-    <a href="https://github.com/[github-user]/[repo-name]/blob/master/README.md"><strong>Explore the docs 📚</strong></a>
+    <a href="https://github.com/Israel-Laguan/Private-Events/blob/master/README.md"><strong>Explore the docs 📚</strong></a>
     <br />
     <br />
 	  🖊️
-    <a href="https://www.theodinproject.com">Assigment</a>
+    <a href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations#your-task">Assigment</a>
     🐛
-    <a href="https://github.com/[github-user]/[repo-name]/issues">Report Bug</a>
+    <a href="https://github.com/Israel-Laguan/Private-Events/issues">Report Bug</a>
     🙏
-    <a href="https://github.com/[github-user]/[repo-name]/issues">Request Feature</a>
+    <a href="https://github.com/Israel-Laguan/Private-Events/issues">Request Feature</a>
   </p>
 </p>
 
-# Your Sub-title here
-Describe here
+# Advanced Forms and Active Record
+## Project: Associations
+Users can create events and send invitations and parties. Events take place at a specific date and at a location. An application named Private Events that behaves similar to [Eventbrite](https://www.eventbrite.com/). The main goal is to put in practice the main concepts of Associations in rails.
 
 # Validations
 
@@ -53,7 +43,14 @@ Rubocop:
 # Features
 
 * Using different databases for development (sqlite3) and production (postgres)
-* Followed the tutorial
+* Followed the [tutorial](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/user_microposts) 
+* Associates several tables on the database using foreign keys:
+
+![models](doc/models.png)
+
+* Use of `sessions`, `cookies` and `flash`
+* Modifies `routes.rb`
+* Managed state with data on DB
 * Tests made with [`RSpec`](https://relishapp.com/rspec/)
 
 # Built With
@@ -83,13 +80,13 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/[github-user]/[repo-name].svg?style=flat-square
-[contributors-url]: https://github.com/[github-user]/[repo-name]/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/[github-user]/[repo-name]
-[forks-url]: https://github.com/[github-user]/[repo-name]/network/members
-[stars-shield]: https://img.shields.io/github/stars/[github-user]/[repo-name]
-[stars-url]: https://github.com/[github-user]/[repo-name]/stargazers
-[issues-shield]: https://img.shields.io/github/issues/[github-user]/[repo-name]
-[issues-url]: https://github.com/[github-user]/[repo-name]/issues
-[license-shield]: https://img.shields.io/github/license/[github-user]/[repo-name]
-[license-url]: https://github.com/[github-user]/[repo-name]/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Israel-Laguan/Private-Events.svg?style=flat-square
+[contributors-url]: https://github.com/Israel-Laguan/Private-Events/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Israel-Laguan/Private-Events
+[forks-url]: https://github.com/Israel-Laguan/Private-Events/network/members
+[stars-shield]: https://img.shields.io/github/stars/Israel-Laguan/Private-Events
+[stars-url]: https://github.com/Israel-Laguan/Private-Events/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Israel-Laguan/Private-Events
+[issues-url]: https://github.com/Israel-Laguan/Private-Events/issues
+[license-shield]: https://img.shields.io/github/license/Israel-Laguan/Private-Events
+[license-url]: https://github.com/Israel-Laguan/Private-Events/blob/master/LICENSE.txt
