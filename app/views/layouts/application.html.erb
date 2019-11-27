@@ -22,9 +22,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <% if @current_user.present? %>
+              <li class="nav-item">
+                <%= link_to 'List All Events', events_path, class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Create Event', new_event_path, class: 'nav-link'  %>
+              </li>
               <li class="navbar-text">
                 <span class="text-success">
-                  Signed in as <%= @current_user.name %>
+                  Signed in as <%= link_to @current_user.name, user_path(@current_user)  %>
                 </span>
               </li>
               <li class="nav-item">
