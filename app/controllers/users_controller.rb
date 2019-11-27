@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :current_user, :set_user, only: %i[show edit update destroy]
+  before_action :current_user, :set_user, only: %i[show edit update]
 
   # GET /users
   def index
     @users = User.all
+    @current_user = current_user
   end
 
   # GET /users/1
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @current_user = current_user
   end
 
   # GET /users/1/edit

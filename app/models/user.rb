@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   has_secure_password
   before_create :create_digest
+  has_many :events, { class_name: :Event, foreign_key: :creator_id }
 
   validates :email, uniqueness: true
   validates :password, length: { minimum: 3 }
