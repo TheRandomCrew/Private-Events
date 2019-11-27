@@ -22,6 +22,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <% if @signed_in %>
+              <li class="navbar-text">
+                <span class="text-success">
+                  Signed in as <%= @current_user.name %>
+                </span>
+              </li>
               <li class="nav-item">
                 <%= link_to 'Sign Out', signout_path, method: :delete, class: 'nav-link' %>
               </li>
@@ -40,11 +45,17 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>"><%= value %></div>
-          <% end %>
+          
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 py-4">
+          <% flash.each do |key, value| %>
+          <div class="alert alert-<%= (key == 'notice')? 'success':'danger' %> alert-dismissible fade show" role="alert">
+            <%= value %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <% end %>
           <%= yield %>
         </div>
       </div>
