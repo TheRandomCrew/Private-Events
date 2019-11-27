@@ -21,7 +21,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            <% if @signed_in %>
+            <% if @current_user.present? %>
               <li class="navbar-text">
                 <span class="text-success">
                   Signed in as <%= @current_user.name %>
