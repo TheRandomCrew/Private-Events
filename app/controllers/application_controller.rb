@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  attr_reader :name
   def sign_in(user)
     remember_token = User.new_token
     cookies.permanent[:remember_token] = remember_token
@@ -24,7 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def signed_in?
-    p 'Hello'
     current_user.present?
   end
 end
