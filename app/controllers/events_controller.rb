@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
+    @current_user = current_user
   end
 
   # GET /events/new
