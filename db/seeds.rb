@@ -17,10 +17,8 @@ users.each do |user|
     10.times do
         @event = user.events.build(location: Faker::Nation.capital_city,
              date: Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today),
-                description: Faker::Lorem.paragraph)
-        @event.save
-        
+                description: "#{Faker::Company.bs} \n #{Faker::Lorem.paragraph}")
+        @event.save        
     end
+
 end
-
-
