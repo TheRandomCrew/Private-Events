@@ -17,5 +17,22 @@
   <%= @event.description %>
 </p>
 
+<h1>Attendees of Event </h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @event.attendees.each do |attendee| %>
+    <tr>
+      <td scope="row"><%= attendee.name%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
