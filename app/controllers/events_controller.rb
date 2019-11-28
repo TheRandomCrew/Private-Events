@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :signed_in?, :set_event, only: %i[show edit update destroy]
 
   # GET /events
   def index
     if current_user.present?
-      @events = Event.all
+      @upcoming_events = Event.upcoming_events
+      @prev_events = Event.prev_events
     else
       flash.now[:alert] = 'You are not Signed in'
       redirect_to signin_path

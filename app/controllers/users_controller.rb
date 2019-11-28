@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :current_user, :set_user, only: %i[show edit update]
+  before_action :signed_in?, :current_user, :set_user, only: %i[show edit update]
 
   # GET /users
   def index
@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1
-  def show; end
+  def show
+    @upcoming_events = @user.attended_events.upcoming_events
+    @prev_events = @user.attended_events.prev_events
+  end
 
   # GET /users/new
   def new
