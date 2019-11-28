@@ -1,33 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<h1 class=" border-bottom">
+  <%= @user.name %> <small class="pull-right"><%= @user.email %></small>
+</h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="card text-white bg-primary my-5">
+  <div class="card-body">
+    <h4 class="card-title">Events Created by <%= @user.name %></h4>
 
-<strong>Events:</strong>
-<div class="container">
-  <% @user.events.each do |event| %>
-    <div class="row">
-      <div class="col-md-2">
-        <%= event.date%>
-      </div>
-      <div class="col-md-3">
-        <%= event.location%>
-      </div>
-      <div class="col-md-6">
-        <%= event.description%>
-      </div>
-      <div class="col-md-1">
-        <%= link_to 'Edit', edit_event_path(event) %>
-      </div>
-    </div>
-  <% end %>
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Date</th>
+          <th>Description</th>
+          <th colspan="1">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.events.each do |event| %>
+        <tr>
+          <td scope="row"><%= event.location%></td>
+          <td scope="row"><%= event.date%></td>
+          <td scope="row"><%= event.description%></td>
+          <td> <%= link_to 'Edit', edit_event_path(event), :class=>"btn btn-outline-light" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card text-white bg-dark my-5">
+  <div class="card-body">
+    <h4 class="card-title">Events Attended </h4>
+
+<table class="table text-white">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.attended_events.each do |ae| %>
+    <tr>
+      <td scope="row"><%= ae.location%></td>
+      <td scope="row"><%= ae.date%></td>
+      <td scope="row"><%= ae.description%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
 </div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
