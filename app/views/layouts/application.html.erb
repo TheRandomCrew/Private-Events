@@ -28,13 +28,13 @@
               <li class="nav-item">
                 <%= link_to 'Create Event', new_event_path, class: 'nav-link'  %>
               </li>
-              <li class="navbar-text">
-                <span class="text-success">
-                  Signed in as <%= link_to @current_user.name, user_path(@current_user)  %>
-                </span>
+              <li class="nav-item">
+                <a href="<%= user_path(@current_user) %>" class="btn btn-outline-success mx-2">
+                  Signed in as <%=  @current_user.name  %>
+                </a>
               </li>
               <li class="nav-item">
-                <%= link_to 'Sign Out', signout_path, method: :delete, class: 'nav-link' %>
+                <%= link_to 'Sign Out', signout_path, method: :delete, class: 'btn btn-outline-danger mx-2' %>
               </li>
             <% else %>
               <li class="nav-item">
@@ -50,10 +50,7 @@
     </nav>
     <div class="container">
       <div class="row">
-        <div class="col-md-2">
-          
-        </div>
-        <div class="col-md-8 py-4">
+        <div class="col-md-8-lg-12 py-4">
           <% flash.each do |key, value| %>
           <div class="alert alert-<%= (key == 'notice')? 'success':'danger' %> alert-dismissible fade show" role="alert">
             <%= value %>
