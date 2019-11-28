@@ -13,20 +13,20 @@
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.text_field :date %>
+    <%= form.date_field :date, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description , class: 'form-control'%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: 'btn btn-outline-dark my-3' %>
   </div>
 <% end %>
