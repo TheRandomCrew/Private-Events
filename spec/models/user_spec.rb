@@ -10,5 +10,8 @@ RSpec.describe User, type: :model do
     should validate_length_of(:password).
     is_at_least(3)
   end
+
+
+  it { should have_many(:attended_events) }
   
 end
