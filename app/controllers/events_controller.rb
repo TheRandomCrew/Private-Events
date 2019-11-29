@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :signed_in?, :set_event, only: %i[show edit update destroy]
+  before_action :signed_in?, :set_event, only: %i[show edit update]
 
   # GET /events
   def index
@@ -54,6 +54,19 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
+  end
+
+  def attend_event
+    @user_event = current_user.user_events.build(event_id: params[:format])
+    @event = Event.find(params[:format])
+    if @user_event.save
+      redirect_to @event, notice: 'Event was successfully followed.'
+    else
+      p @user
+      p @event
+      flash.now[:alert] = 'There was a problem following the event'
+      render :new
+    end
   end
 
   private

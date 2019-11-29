@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   post 'signup' => 'users#create'
   get 'signin' => 'sessions#new'
   post 'sessions/new' => 'sessions#create'
-  get 'signout' => 'sessions#delete'
+  delete 'signout' => 'sessions#delete'
+  get 'attend' => 'events#attend_event'
   resources :events
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
