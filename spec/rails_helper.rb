@@ -69,3 +69,6 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+require 'capybara/rails'
+require 'webdrivers'
+Capybara.default_driver = :selenium_chrome

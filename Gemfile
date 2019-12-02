@@ -40,10 +40,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'faker'
-end
-
-group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'webdrivers', '~> 4.0'
 end
 
 group :development do

@@ -1,4 +1,4 @@
-<%= form_for :sessions do |f| %>
+<%= form_for :sessions do |f|  %>
     <% if @sessions && @sessions.errors.any? %>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <div id="error_explanation">
@@ -14,13 +14,12 @@
         </button>
     </div>
     <% end %>
-
-    <div class="field">
+    <div class="field" id="signin-email">
         <%= f.label :email %>
         <%= f.email_field :email, placeholder: "Please enter your email", class: "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="field" id="signin-password">
         <%= f.label :password %>
         <%= f.password_field :password, placeholder: "Enter the password", class: "form-control" %>
     </div>
