@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "GET '/sessions/new'", :type => :feature do
     it 'Shows the sign in form' do
-      visit('http://localhost:3000/sessions/new')
+      visit('/sessions/new')
       expect(page).to have_content("Email")
       expect(page).to have_content("Password")
       puts 'You can enter credentials here'
