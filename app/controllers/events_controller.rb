@@ -56,8 +56,8 @@ class EventsController < ApplicationController
   end
 
   def attend_event
-    @user_event = current_user.user_events.build(event_id: params[:format])
-    @event = Event.find(params[:format])
+    @user_event = current_user.user_events.build(event_id: params[:id])
+    @event = Event.find(params[:id])
     if @user_event.save
       redirect_to @event, notice: 'Event was successfully followed.'
     else

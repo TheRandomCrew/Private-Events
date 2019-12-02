@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :events, class_name: :Event, foreign_key: :creator_id
 
   has_many :user_events
-  has_many :attended_events, through: :user_events, source: 'event'
+  has_many :attended_events, -> { distinct }, through: :user_events, source: 'event'
 
   validates :email, uniqueness: true
   validates :password, length: { minimum: 3 }
