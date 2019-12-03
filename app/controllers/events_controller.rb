@@ -5,13 +5,8 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    if current_user.present?
-      @upcoming_events = Event.upcoming_events
-      @prev_events = Event.prev_events
-    else
-      flash.now[:alert] = 'You are not Signed in'
-      redirect_to signin_path
-    end
+    @upcoming_events = Event.upcoming_events
+    @prev_events = Event.prev_events
   end
 
   # GET /events/1
@@ -61,8 +56,6 @@ class EventsController < ApplicationController
     if @user_event.save
       redirect_to @event, notice: 'Event was successfully followed.'
     else
-      p @user
-      p @event
       flash.now[:alert] = 'There was a problem following the event'
       render :new
     end
