@@ -1,0 +1,33 @@
+<%= form_for :sessions do |f|  %>
+    <% if @sessions && @sessions.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div id="error_explanation">
+            <strong><%= pluralize(:sessions.errors.count, "error") %> prohibited this user from being login:</strong>
+            <ul>
+                <% :sessions.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% end %>
+    <div class="field" id="signin-email">
+        <%= f.label :email %>
+        <%= f.email_field :email, placeholder: "Please enter your email", class: "form-control" %>
+    </div>
+
+    <div class="field" id="signin-password">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Enter the password", class: "form-control" %>
+    </div>
+
+    <div class="actions mt-3">
+        <%= f.submit "Sign in", class: "btn btn-outline-dark" %>
+    </div>
+<% end %>
+
+<%= link_to 'Home page', root_path %> |
+<%= link_to 'Create User', signup_path %>

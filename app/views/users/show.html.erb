@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class=" border-bottom">
+  <%= @user.name %> <small class="pull-right"><%= @user.email %></small>
+</h1>
+
+<div class="card text-white bg-primary my-5">
+  <div class="card-body">
+    <h4 class="card-title">Events Created by <%= @user.name %></h4>
+
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Date</th>
+          <th>Description</th>
+          <th colspan="1">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.events.each do |event| %>
+        <tr>
+          <td scope="row"><%= event.location%></td>
+          <td scope="row"><%= event.date%></td>
+          <td scope="row"><%= event.description%></td>
+          <td> <%= link_to 'Edit', edit_event_path(event), :class=>"btn btn-outline-light" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card text-white bg-dark my-5">
+  <div class="card-body">
+    <h4 class="card-title">Events Due </h4>
+
+<table class="table text-white">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @upcoming_events.each do |ae| %>
+    <tr>
+      <td scope="row"><%= ae.location%></td>
+      <td scope="row"><%= ae.date%></td>
+      <td scope="row"><%= ae.description%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+</div>
+
+<div class="card bg-light my-5">
+  <div class="card-body">
+    <h4 class="card-title">Events Past</h4>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Date</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @prev_events.each do |ae| %>
+        <tr>
+          <td scope="row"><%= ae.location%></td>
+          <td scope="row"><%= ae.date%></td>
+          <td scope="row"><%= ae.description%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

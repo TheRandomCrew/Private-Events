@@ -1,2 +1,143 @@
-<h1>Home#show</h1>
-<p>Find me in app/views/home/show.html.erb</p>
+<main role="main">
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="<%=asset_path('events1.jpeg')%>" width="100%" height="100%" background="#777" color="#777" text="false" title="false" >
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1>Bringing the world together through live experiences</h1>
+            <p>
+                <% if @current_user.present? %>
+                    <a class="btn btn-lg btn-primary" href="<%= new_event_path %>" role="button">Create an Event</a>
+                <% else %>
+                    <a class="btn btn-lg btn-primary" href="<%= signup_path %>" role="button">Sign up today</a>
+                <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%=asset_path('events2.jpg')%>" width="100%" height="100%" background="#777" color="#777" text="false" title="false" >
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Make your event an experience</h1>
+            <p>
+                Give your event goers a great experience with simple, secure checkout and rapid check-in through our mobile apps and a full suite of on-site equipment, staffing, and logistics.
+            </p>
+            <p>
+                <% if @current_user.present? %>
+                    <a class="btn btn-lg btn-primary" href="<%= new_event_path %>" role="button">Create an Event</a>
+                <% else %>
+                    <a class="btn btn-lg btn-primary" href="<%= signup_path %>" role="button">Sign up today</a>
+                <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%=asset_path('events3.jpg')%>" width="100%" height="100%" background="#777" color="#777" text="false" title="false" >
+        <div class="container">
+          <div class="carousel-caption text-right">
+            <h1>Rule the day-of</h1>
+            <p>
+                Benefit from the event expertise of a seasoned pro.
+            </p>
+            <p>
+                <% if @current_user.present? %>
+                    <a class="btn btn-lg btn-primary" href="<%= new_event_path %>" role="button">Create an Event</a>
+                <% else %>
+                    <a class="btn btn-lg btn-primary" href="<%= signup_path %>" role="button">Sign up today</a>
+                <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div class="container marketing my-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="<%=asset_path('feature1.jpg')%>" width="140" height="140" background="#777" color="#777" class="rounded-circle" >
+        <h2>Get started in minutes</h2>
+        <p>
+            Create a beautiful event listing page.
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <img src="<%=asset_path('feature2.jpg')%>" width="140" height="140" background="#777" color="#777" class="rounded-circle" >
+        <h2>Privacy</h2>
+        <p>
+            We take care of the security, your data is secure with us.
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <img src="<%=asset_path('feature3.jpg')%>" width="140" height="140" background="#777" color="#777" class="rounded-circle" >
+        <h2>Reach your people</h2>
+        <p>
+            Your events are just for the people you want to reach.
+        </p>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Elevate your brand. <span class="text-muted">It’ll blow your mind.</span></h2>
+        <p class="lead">Promote your unique brand with private events.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="<%=asset_path('events4.jpg')%>" width="500" height="500" background="#eee" color="#aaa" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto" >
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+        <p class="lead">
+            From music festivals and conventions to pop-up dinners and photography classes, transform your vision into an experience people will love.
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="<%=asset_path('events5.jpg')%>" width="500" height="500" background="#eee" color="#aaa" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto" >
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">We are wherever you want, we are <span class="text-muted">GLOBAL.</span></h2>
+        <p class="lead">We a global platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="<%=asset_path('events6.jpg')%>" width="500" height="500" background="#eee" color="#aaa" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto" >
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+  </div>
+
+  <footer class="container">
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2019 &middot; Aheebwa Ramadhan & Israel Laguan.</p>
+  </footer>
+</main>
