@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  before_action :auth_user?
+  
   def sign_in(user)
     remember_token = User.new_token
     cookies.permanent[:remember_token] = remember_token
@@ -24,5 +26,10 @@ class ApplicationController < ActionController::Base
 
   def signed_in?
     current_user.present?
+  end
+
+
+  def auth_user?
+    redirect_to signin_path unless signed_in?
   end
 end

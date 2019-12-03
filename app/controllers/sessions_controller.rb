@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  skip_before_action :auth_user?
   def new
     @current_user = current_user
   end
