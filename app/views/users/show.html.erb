@@ -26,9 +26,7 @@
           <td scope="row"><%= event.description%></td>
           <td> <%= link_to 'Edit', edit_event_path(event), :class=>"btn btn-outline-light" %></td>
           <% if event.creator_id == @current_user.id %>
-            <td><%= button_to 'Destroy', event, method: :delete,data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>
-          <% else %>
-            <td></td>
+            <td><%= button_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>
           <% end %>
         </tr>
         <% end %>

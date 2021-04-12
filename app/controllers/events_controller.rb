@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :signed_in?, :set_event, only: %i[show edit update]
+  before_action :signed_in?, :set_event, only: %i[show edit update destroy]
 
   # GET /events
   def index
@@ -46,7 +46,6 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
   end
