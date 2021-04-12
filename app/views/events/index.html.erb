@@ -30,6 +30,7 @@
         <% else %>
           <td></td>
         <% end %>
+        <td><p><%= event.likes.count %> <%= (event.likes.count) == 1 ? 'Like' : 'Likes'%></p></td>
       </tr>
       <% end %>
     </tbody>
