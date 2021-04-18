@@ -36,3 +36,36 @@
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+
+<%= form_with model: [@event, @comment] do |f| %>
+  <%= f.text_field :body %>
+  <%= f.submit "comment", disable_with: 'commenting...' %>
+<% end %>
+
+
+<div>
+  <% @comments.each do |comment| %>
+    [<%= comment.created_at.strftime("%I:%M %p; %d-%m-%y")%>] 
+    <%= comment.user.name%> : 
+    <%= comment.body %>
+      <% if @current_user && @current_user == comment.user %>
+        <%= button_to 'Destroy', event_comment_path(@event, comment), method: :delete, class: 'btn btn-danger'%>
+      <% end %>
+
+      <%= form_with model: [comment, @answer] do |d| %>
+        <%= d.text_field :body %>
+        <%= d.submit "answer", disable_with: 'answering...' %>
+      <% end %>
+
+      <% comment.answers.each do |answer| %>
+        <%= answer.user.name %> :
+        <%= answer.body %>
+        <% if @current_user && @current_user == answer.user %>
+          <%= button_to 'Destroy', comment_answer_path(comment, answer), method: :delete, class: 'btn btn-danger'%>
+        <% end %>
+        <hr>
+        <br>
+      <% end %>
+    <br>
+  <% end %>
+</div>

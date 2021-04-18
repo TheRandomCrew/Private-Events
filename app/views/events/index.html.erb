@@ -25,6 +25,7 @@
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Attend', attend_path(event) %></td>
+        <td><p><%= event.comments.count %> <%= (event.comments.count) == 1 ? 'Comment' : 'Comments'%></p></td>
       </tr>
       <% end %>
     </tbody>
