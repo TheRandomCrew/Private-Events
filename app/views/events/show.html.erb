@@ -37,11 +37,7 @@
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
 
-<%= form_with model: [@event, @comment] do |f| %>
-  <%= f.text_field :body %>
-  <%= f.submit "comment", disable_with: 'commenting...' %>
-<% end %>
-
+<%= render 'comments/form' %>
 
 <div>
   <% @comments.each do |comment| %>
@@ -52,10 +48,7 @@
         <%= button_to 'Destroy', event_comment_path(@event, comment), method: :delete, class: 'btn btn-danger'%>
       <% end %>
 
-      <%= form_with model: [comment, @answer] do |d| %>
-        <%= d.text_field :body %>
-        <%= d.submit "answer", disable_with: 'answering...' %>
-      <% end %>
+     <%= render 'answers/form', comment:comment%>
 
       <% comment.answers.each do |answer| %>
         <%= answer.user.name %> :
