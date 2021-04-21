@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :signed_in?, :set_event, only: %i[show edit update]
+  before_action :signed_in?, :set_event, only: %i[show edit update destroy]
 
   # GET /events
   def index
