@@ -39,3 +39,12 @@
 <% if @event.creator_id == @current_user.id %>
   <td><%= button_to 'Destroy', @event, method: :delete, data: { confirm: "Are you sure to delete this event?" }, class: 'btn btn-danger'%></td>
 <% end %>
+<div>
+  <p><%= @event.likes.count %> <%= (@event.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+  <% pre_like = @event.likes.find { |like| like.user_id == @current_user.id} %>
+  <% if pre_like %>
+    <%= button_to 'Unlike', event_like_path(@event, pre_like), method: :delete %>
+  <% else %>
+    <%= button_to 'Like', event_likes_path(@event), method: :post %>
+  <% end %>
+</div>

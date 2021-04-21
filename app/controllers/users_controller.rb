@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    @event = Event.find(params[:id])
     @upcoming_events = @user.attended_events.upcoming_events
     @prev_events = @user.attended_events.prev_events
   end
