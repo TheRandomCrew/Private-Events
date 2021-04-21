@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
+    @today_events = Event.today_events
     @upcoming_events = Event.upcoming_events
     @prev_events = Event.prev_events
   end
