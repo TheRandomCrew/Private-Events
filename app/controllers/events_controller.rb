@@ -13,6 +13,9 @@ class EventsController < ApplicationController
   # GET /events/1
   def show
     @current_user = current_user
+    @comment = Comment.new
+    @comments = @event.comments.order("created_at DESC")
+    @answer = Answer.new
   end
 
   # GET /events/new

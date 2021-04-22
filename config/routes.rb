@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'answers/create'
+  get 'answers/destroy'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -13,7 +15,11 @@ Rails.application.routes.draw do
   get 'attend/:id' => 'events#attend_event', as: :attend
   resources :events
   resources :events do
-    resources :likes
+    resources :comments, only: [:create, :destroy]
   end
+  resources :comments do
+    resources :answers, only: [:create, :destroy]
+  end
+  resources :likes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
