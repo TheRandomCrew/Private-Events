@@ -5,7 +5,11 @@ class Event < ApplicationRecord
 
   has_many :user_events
   has_many :attendees, -> { distinct }, through: :user_events, source: 'user'
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
+
+  scope :today_events, -> {where('date == ?', Date.today) }
   scope :upcoming_events, -> { where('date > ?', Date.today) }
   scope :prev_events, -> { where('date < ?', Date.today) }
 end

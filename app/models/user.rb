@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_many :user_events
   has_many :attended_events, -> { distinct }, through: :user_events, source: 'event'
+  has_many :comments, dependent: :destroy
+  has_many :answers, dependent: :destroy 
+  has_many :likes, dependent: :destroy
+
 
   validates :email, uniqueness: true
   validates :password, length: { minimum: 3 }

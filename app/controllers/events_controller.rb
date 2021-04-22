@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :signed_in?, :set_event, only: %i[show edit update]
+  before_action :signed_in?, :set_event, only: %i[show edit update destroy]
 
   # GET /events
   def index
+    @today_events = Event.today_events
     @upcoming_events = Event.upcoming_events
     @prev_events = Event.prev_events
   end
@@ -12,6 +13,9 @@ class EventsController < ApplicationController
   # GET /events/1
   def show
     @current_user = current_user
+    @comment = Comment.new
+    @comments = @event.comments.order("created_at DESC")
+    @answer = Answer.new
   end
 
   # GET /events/new

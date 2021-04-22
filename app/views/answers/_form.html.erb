@@ -1,0 +1,4 @@
+<%= form_with model: [comment, @answer] do |f| %>
+  <%= f.text_field :body %>
+  <%= f.submit "answer", disable_with: 'answering...' %>
+<% end %>
