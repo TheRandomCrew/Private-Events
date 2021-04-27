@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user_feedbacks/create'
   get 'answers/create'
   get 'answers/destroy'
   get 'sessions/new'
@@ -20,6 +21,11 @@ Rails.application.routes.draw do
   resources :comments do
     resources :answers, only: [:create, :destroy]
   end
-  resources :likes
+  resources :events do
+    resources :likes
+  end
+  resources :events do
+    resources :user_feedbacks
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
