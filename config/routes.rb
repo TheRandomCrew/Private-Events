@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'user_feedbacks/create'
-  get 'answers/create'
-  get 'answers/destroy'
+  resources :sessions
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -12,7 +10,6 @@ Rails.application.routes.draw do
   post 'signup' => 'users#create'
   get 'signin' => 'sessions#new'
   post 'sessions/new' => 'sessions#create'
-  get 'signout' => 'sessions#delete'
   get 'attend/:id' => 'events#attend_event', as: :attend
   resources :events
   resources :events do
