@@ -7,6 +7,7 @@ class Event < ApplicationRecord
   has_many :attendees, -> { distinct }, through: :user_events, source: 'user'
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :participates, dependent: :destroy
   has_many :user_feedbacks
   has_many :users, through: :user_feedbacks
 

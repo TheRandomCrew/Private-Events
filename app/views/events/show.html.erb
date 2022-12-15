@@ -54,6 +54,13 @@
 </div>
 
 <div>
+  <p><%= @event.participates.count %> <%= (@event.participates.count) == 1 ? "participate" : "participates" %></p>
+  <%= button_to "participate", event_participates_path(@event), method: :post %>
+</div>
+
+<%= render 'comments/form' %>
+
+<div>
   <% @comments.each do |comment| %>
     [<%= comment.created_at.strftime("%I:%M %p; %d-%m-%y")%>] 
     <%= comment.user.name%> : 
