@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(version: 2021_04_27_162715) do
     t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
+  create_table "user_feedbacks", force: :cascade do |t|
+    t.text "comment"
+    t.integer "rating"
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_user_feedbacks_on_event_id"
+    t.index ["user_id"], name: "index_user_feedbacks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"

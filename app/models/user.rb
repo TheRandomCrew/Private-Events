@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :answers, dependent: :destroy 
   has_many :likes, dependent: :destroy
   has_many :participates, dependent: :destroy
+  has_many :user_feedbacks, dependent: :destroy
 
 
   validates :email, uniqueness: true
